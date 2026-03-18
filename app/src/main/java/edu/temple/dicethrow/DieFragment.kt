@@ -58,7 +58,8 @@ class DieFragment : Fragment() {
     }
 
     fun throwDie() {
-        dieTextView.text = Random.nextInt(1,dieSides + 1).toString()
+        currentRoll = Random.nextInt(1,dieSides + 1)
+        dieTextView.text = currentRoll.toString()
     }
 
     companion object {

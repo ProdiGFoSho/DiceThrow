@@ -19,12 +19,27 @@ class MainActivity : AppCompatActivity() {
                 .add(R.id.fragmentContainerView, DieFragment.newInstance(20))
                 .commit()
         }
+        if(supportFragmentManager.findFragmentById(R.id.fragmentContainerView2) == null)
+        {
+            supportFragmentManager
+                .beginTransaction()
+                .add(R.id.fragmentContainerView2, DieFragment.newInstance(20))
+                .commit()
+        }
 
         findViewById<Button>(R.id.rollDiceButton).setOnClickListener {
             (supportFragmentManager
                 .findFragmentById(R.id.fragmentContainerView) as DieFragment)?.run {
+                (this.throwDie())
+
+            }
+
+            (supportFragmentManager
+                .findFragmentById(R.id.fragmentContainerView2) as DieFragment)?.run {
+                (this.throwDie())
 
             }
         }
+
     }
 }
